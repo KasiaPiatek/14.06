@@ -7,6 +7,31 @@ var Counter = React.createClass({
     
     },
 
+    increment: function() {
+        this.setState({
+            counter: this.state.counter + 1
+        });
+    },
+
+    decrement: function() {
+        this.setState({
+            counter: this.state.counter - 1
+        });
+    },
+
+    multiplication: function() {
+    	this.setState({
+    		counter: this.state.counter *2
+    	});
+    },
+
+    remainder: function() {
+    	this.setState({
+    		counter: this.state.counter /3
+    	});
+    },
+
+
     componentWillReceiveProps: function (nextProps) {
         console.log('1. zostanie wywołana gdy komponent otrzyma nowa właściwość', nextProps);
     },
@@ -25,6 +50,7 @@ var Counter = React.createClass({
 
     shouldComponentUpdate: function(nextProps, nextState) {
         console.log('5. wywołana przed render i sprawdza czy trzeba jeszcze raz przerysowac komponent/ boolean');
+          return true;
     },
 
     render: function() {
@@ -40,30 +66,26 @@ var Counter = React.createClass({
     },
 
     componentDidUpdate: function(prevProps, prevState) {
-        console.log('9. jako ostatnia - manupulacje w DOM');
+        console.log('9. jako ostatnia - maniulacje w DOM');
     },
 
-    increment: function() {
-    	this.setState({
-       	 	counter: this.state.counter + 1
-        });
-    },
-
-    decrement: function() {
-    	this.setState({
-       	 	counter: this.state.counter - 1
-        });
-    },
 
 
     render: function() {
         return React.createElement('div', {},
             React.createElement('button', {onClick: this.increment}, 'Dodaje '),
             React.createElement('div', {}, this.state.counter),
-            React.createElement('button', {onClick: this.decrement}, 'Odejmuje')
+            React.createElement('button', {onClick: this.decrement}, 'Odejmuje'),
+            React.createElement('div', {}, this.state.counter),
+            React.createElement('button', {onClick: this.multiplication}, 'Mnoży'),
+            React.createElement('div', {}, this.state.counter),
+            React.createElement('button', {onClick: this.remainder}, 'Dzieli'),
         );
     }
 });
+
+
+
 
 
 
