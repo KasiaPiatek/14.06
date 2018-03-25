@@ -2,7 +2,6 @@ var Counter = React.createClass({
     getInitialState: function() {
         return {
             counter: 0
-        
         };
     
     },
@@ -17,18 +16,6 @@ var Counter = React.createClass({
         this.setState({
             counter: this.state.counter - 1
         });
-    },
-
-    multiplication: function() {
-    	this.setState({
-    		counter: this.state.counter *2
-    	});
-    },
-
-    remainder: function() {
-    	this.setState({
-    		counter: this.state.counter /3
-    	});
     },
 
 
@@ -76,15 +63,72 @@ var Counter = React.createClass({
             React.createElement('button', {onClick: this.increment}, 'Dodaje '),
             React.createElement('div', {}, this.state.counter),
             React.createElement('button', {onClick: this.decrement}, 'Odejmuje'),
-            React.createElement('div', {}, this.state.counter),
-            React.createElement('button', {onClick: this.multiplication}, 'Mnoży'),
-            React.createElement('div', {}, this.state.counter),
-            React.createElement('button', {onClick: this.remainder}, 'Dzieli'),
         );
     }
+
+});
+
+var Counter2 = React.createClass({
+    getInitialState: function() {
+        return {
+            counter: 0
+        };
+    
+    },
+
+    multiplication: function() {
+    	this.setState({
+    		counter: this.state.counter * 2
+    	});
+    },
+
+    division: function() {
+    	this.setState({
+    		counter: this.state.counter / 3
+    	});
+    },
+
+
+    render: function() {
+        return React.createElement('div', {},
+            React.createElement('button', {onClick: this.multiplication}, 'Mnoży'),
+            React.createElement('div', {}, this.state.counter),
+            React.createElement('button', {onClick: this.division}, 'Dzieli'),
+        );
+   	}
 });
 
 
+
+var Counter3 = React.createClass({
+    getInitialState: function() {
+        return {
+            counter: 0
+        };
+    
+    },
+
+    remainder: function() {
+    	this.setState({
+    		counter: this.state.counter % 2
+    	});
+    },
+
+    exponentiation: function() {
+    	this.setState({
+    		counter: this.state.counter ** 2
+    	});
+    },
+
+
+    render: function() {
+        return React.createElement('div', {},
+            React.createElement('button', {onClick: this.remainder}, 'Mnoży'),
+            React.createElement('div', {}, this.state.counter),
+            React.createElement('button', {onClick: this.exponentiation}, 'Dzieli'),
+        );
+   	}
+});
 
 
 
