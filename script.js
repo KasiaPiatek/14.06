@@ -56,15 +56,23 @@ var Counter = React.createClass({
         console.log('9. jako ostatnia - maniulacje w DOM');
     },
 
-
-
     render: function() {
+    	return React.createElement('div', {})
+    }
+
+    /*render: function() {
         return React.createElement('div', {},
             React.createElement('button', {onClick: this.increment}, 'Dodaje '),
             React.createElement('div', {}, this.state.counter),
             React.createElement('button', {onClick: this.decrement}, 'Odejmuje'),
         );
-    }
+
+        	React.createElement('li', {},
+			React.createElement(Counter0, {onClick: this.increment}, 'Dodaje '),
+			React.createElement(Counter1, {}),
+			React.createElement(Counter2), {}
+			));
+    }*/
 
 });
 
@@ -88,14 +96,10 @@ var Counter2 = React.createClass({
     	});
     },
 
-
     render: function() {
-        return React.createElement('div', {},
-            React.createElement('button', {onClick: this.multiplication}, 'Mnoży'),
-            React.createElement('div', {}, this.state.counter),
-            React.createElement('button', {onClick: this.division}, 'Dzieli'),
-        );
-   	}
+    	return React.createElement()
+    }
+    
 });
 
 
@@ -120,19 +124,25 @@ var Counter3 = React.createClass({
     	});
     },
 
-
     render: function() {
-        return React.createElement('div', {},
-            React.createElement('button', {onClick: this.remainder}, 'Mnoży'),
-            React.createElement('div', {}, this.state.counter),
-            React.createElement('button', {onClick: this.exponentiation}, 'Dzieli'),
-        );
-   	}
+    	return React.createElement()
+    }
+
 });
 
 
 
 
 
-var element = React.createElement(Counter);
-ReactDOM.render(element, document.getElementById('app'));
+var element = React.createClass({
+	render: function() {
+		    return React.createElement('div', {},
+		        React.createElement('button', {onClick: this.increment}, 'Dodaje '),
+		        React.createElement('div', {}, this.state.counter),
+		        React.createElement('button', {onClick: this.decrement}, 'Odejmuje'),
+        		);
+	}
+});
+
+ReactDOM.render(React.createElement(element), document.getElementById('app'));
+
