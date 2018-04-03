@@ -40,10 +40,6 @@ var Counter = React.createClass({
           return true;
     },
 
-    render: function() {
-        console.log('6');
-    },
-
     componentWillUnmount: function() {
         console.log('7. Przed usunieiem komponentu, Sprząta. DOpina timery i nasluchuje zdarzen w el.DOM');
     },
@@ -56,76 +52,13 @@ var Counter = React.createClass({
         console.log('9. jako ostatnia - maniulacje w DOM');
     },
 
-    render: function() {
-    	return React.createElement('div', {})
-    }
 
-    /*render: function() {
+    render: function() {
         return React.createElement('div', {},
             React.createElement('button', {onClick: this.increment}, 'Dodaje '),
             React.createElement('div', {}, this.state.counter),
             React.createElement('button', {onClick: this.decrement}, 'Odejmuje'),
-        );
-
-        	React.createElement('li', {},
-			React.createElement(Counter0, {onClick: this.increment}, 'Dodaje '),
-			React.createElement(Counter1, {}),
-			React.createElement(Counter2), {}
-			));
-    }*/
-
-});
-
-var Counter2 = React.createClass({
-    getInitialState: function() {
-        return {
-            counter: 0
-        };
-    
-    },
-
-    multiplication: function() {
-    	this.setState({
-    		counter: this.state.counter * 2
-    	});
-    },
-
-    division: function() {
-    	this.setState({
-    		counter: this.state.counter / 3
-    	});
-    },
-
-    render: function() {
-    	return React.createElement()
-    }
-    
-});
-
-
-
-var Counter3 = React.createClass({
-    getInitialState: function() {
-        return {
-            counter: 0
-        };
-    
-    },
-
-    remainder: function() {
-    	this.setState({
-    		counter: this.state.counter % 2
-    	});
-    },
-
-    exponentiation: function() {
-    	this.setState({
-    		counter: this.state.counter ** 2
-    	});
-    },
-
-    render: function() {
-    	return React.createElement()
+        )
     }
 
 });
@@ -133,16 +66,11 @@ var Counter3 = React.createClass({
 
 
 
+var element = React.createElement('div', {},
+                React.createElement(Counter),
+                React.createElement(Counter),
+                React.createElement(Counter),
+                );
 
-var element = React.createClass({
-	render: function() {
-		    return React.createElement('div', {},
-		        React.createElement('button', {onClick: this.increment}, 'Dodaje '),
-		        React.createElement('div', {}, this.state.counter),
-		        React.createElement('button', {onClick: this.decrement}, 'Odejmuje'),
-        		);
-	}
-});
-
-ReactDOM.render(React.createElement(element), document.getElementById('app'));
+ReactDOM.render(element, document.getElementById('app'));
 
